@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ankur Karna | Java Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    /* Reset and basics */
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
     body {
       font-family: 'Inter', sans-serif;
@@ -17,6 +16,18 @@
       color: #333;
       line-height: 1.6;
       padding: 2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      color: #3498db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover, button:hover {
+      color: #1d6fa5;
+      cursor: pointer;
     }
     header {
       text-align: center;
@@ -25,10 +36,30 @@
     h1 {
       font-size: 2.5rem;
       color: #2c3e50;
+      margin-bottom: 0.3rem;
     }
     p.subtitle {
       font-size: 1.2rem;
       color: #7f8c8d;
+      font-weight: 500;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      user-select: none;
+    }
+    nav a.active {
+      background-color: #3498db;
+      color: white;
     }
     section {
       max-width: 800px;
@@ -37,9 +68,17 @@
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     h2 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       margin-bottom: 1rem;
       color: #34495e;
     }
@@ -49,16 +88,77 @@
     }
     li {
       margin-bottom: 1rem;
+      font-weight: 500;
     }
-    a {
-      color: #3498db;
-      text-decoration: none;
+    button.download-btn {
+      background-color: #3498db;
+      border: none;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: 1rem;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    button.download-btn:hover {
+      background-color: #1d6fa5;
+      cursor: pointer;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea {
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    }
+    button.submit-btn {
+      background-color: #3498db;
+      border: none;
+      color: white;
+      padding: 0.8rem 1.4rem;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    button.submit-btn:hover {
+      background-color: #1d6fa5;
+      cursor: pointer;
+    }
+    .message {
+      margin-top: 0.5rem;
+      font-weight: 600;
     }
     footer {
       text-align: center;
-      margin-top: 3rem;
+      margin-top: auto;
       font-size: 0.9rem;
       color: #95a5a6;
+      padding-top: 1rem;
+      border-top: 1px solid #ddd;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav {
+        gap: 1rem;
+      }
+      section {
+        padding: 1.2rem;
+      }
     }
   </style>
 </head>
@@ -68,36 +168,116 @@
     <p class="subtitle">Java Developer | Spring Boot | SQL | Power BI</p>
   </header>
 
-  <section>
+  <nav>
+    <a href="#" data-page="about" class="active">About</a>
+    <a href="#" data-page="projects">Projects</a>
+    <a href="#" data-page="blog">Blog</a>
+    <a href="#" data-page="contact">Contact</a>
+  </nav>
+
+  <section id="about" class="visible">
     <h2>About Me</h2>
     <p>I'm a passionate Java developer with experience in building full-stack applications using Spring Boot, SQL, and data visualization with Power BI. I love learning new technologies and solving real-world problems through code.</p>
+    <button class="download-btn" onclick="downloadResume()">Download Resume</button>
   </section>
 
-  <section style="margin-top: 2rem;">
+  <section id="projects" class="">
     <h2>Projects</h2>
     <ul>
-      <li>
-        <strong>Customer Insight Pro</strong><br>
-        A Spring Boot app with CRUD operations for customers, products, and purchases. Includes RESTful analytics, Swagger docs, and future Power BI integration.
-      </li>
-      <li>
-        <strong>Sales Dashboard</strong><br>
-        Developed in Power BI to track performance and trends, improving decision-making for business stakeholders.
-      </li>
+      <li><strong>Customer Insight Pro</strong><br>A Spring Boot app with CRUD operations for customers, products, and purchases. Includes RESTful analytics, Swagger docs, and future Power BI integration.</li>
+      <li><strong>Sales Dashboard</strong><br>Developed in Power BI to track performance and trends, improving decision-making for business stakeholders.</li>
     </ul>
   </section>
 
-  <section style="margin-top: 2rem;">
-    <h2>Links</h2>
+  <section id="blog" class="">
+    <h2>Blog</h2>
     <ul>
-      <li><a href="https://github.com/ankurkarna" target="_blank">GitHub</a></li>
-      <li><a href="mailto:ankur@example.com">Email Me</a></li>
+      <li><strong>Getting started with Spring Boot</strong> - How to quickly set up a Spring Boot project and structure it.</li>
+      <li><strong>Power BI Tips</strong> - Useful techniques for building interactive dashboards.</li>
+      <li><strong>SQL Query Optimization</strong> - Best practices for writing efficient SQL queries.</li>
     </ul>
+  </section>
+
+  <section id="contact" class="">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="submit-btn">Send Message</button>
+      <p class="message" id="form-message"></p>
+    </form>
   </section>
 
   <footer>
     <p>&copy; 2025 Ankur Karna</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    // Initialize EmailJS with your user ID (replace with your own!)
+    emailjs.init('YOUR_EMAILJS_USER_ID');
+
+    // Page navigation
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const page = link.getAttribute('data-page');
+
+        // Activate nav link
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        // Show/hide sections with fade effect
+        sections.forEach(section => {
+          if(section.id === page) {
+            section.classList.add('visible');
+          } else {
+            section.classList.remove('visible');
+          }
+        });
+      });
+    });
+
+    // Simple fade-in on scroll for sections (optional extra)
+    window.addEventListener('scroll', () => {
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100) {
+          section.classList.add('visible');
+        }
+      });
+    });
+
+    // Resume download handler - link to your resume PDF here
+    function downloadResume() {
+      // Replace with your actual resume file URL
+      const resumeUrl = 'https://example.com/your_resume.pdf';
+      window.open(resumeUrl, '_blank');
+    }
+
+    // Contact form submit using EmailJS
+    const form = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      formMessage.textContent = 'Sending...';
+
+      emailjs.sendForm('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', form)
+        .then(() => {
+          formMessage.style.color = 'green';
+          formMessage.textContent = 'Message sent successfully!';
+          form.reset();
+        }, (error) => {
+          formMessage.style.color = 'red';
+          formMessage.textContent = 'Failed to send message, please try again later.';
+          console.error('EmailJS error:', error);
+        });
+    });
+  </script>
 </body>
 </html>
