@@ -1,282 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ankur Karna | Java Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ankur Karna - Software Engineer Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Calibri:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset and basics */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
-      line-height: 1.6;
-      padding: 2rem;
-      min-height: 100vh;
+    body { font-family: 'Calibri', sans-serif; }
+    html { scroll-behavior: smooth; }
+    #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #2563eb;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
       display: flex;
-      flex-direction: column;
-    }
-    a {
-      color: #3498db;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover, button:hover {
-      color: #1d6fa5;
-      cursor: pointer;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      color: #2c3e50;
-      margin-bottom: 0.3rem;
-    }
-    p.subtitle {
-      font-size: 1.2rem;
-      color: #7f8c8d;
-      font-weight: 500;
-    }
-    nav {
-      display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-    nav a {
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.3rem 0.6rem;
-      border-radius: 5px;
-      user-select: none;
-    }
-    nav a.active {
-      background-color: #3498db;
-      color: white;
-    }
-    section {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      margin-bottom: 2rem;
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: opacity 0.3s;
     }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #34495e;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    li {
-      margin-bottom: 1rem;
-      font-weight: 500;
-    }
-    button.download-btn {
-      background-color: #3498db;
-      border: none;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 5px;
-      font-weight: 600;
-      font-size: 1rem;
-      margin-top: 1rem;
-      user-select: none;
-      transition: background-color 0.3s ease;
-    }
-    button.download-btn:hover {
-      background-color: #1d6fa5;
-      cursor: pointer;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    input, textarea {
-      padding: 0.6rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-family: inherit;
-      font-size: 1rem;
-      resize: vertical;
-    }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #3498db;
-      box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-    }
-    button.submit-btn {
-      background-color: #3498db;
-      border: none;
-      color: white;
-      padding: 0.8rem 1.4rem;
-      border-radius: 5px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      user-select: none;
-      transition: background-color 0.3s ease;
-    }
-    button.submit-btn:hover {
-      background-color: #1d6fa5;
-      cursor: pointer;
-    }
-    .message {
-      margin-top: 0.5rem;
-      font-weight: 600;
-    }
-    footer {
-      text-align: center;
-      margin-top: auto;
-      font-size: 0.9rem;
-      color: #95a5a6;
-      padding-top: 1rem;
-      border-top: 1px solid #ddd;
-    }
-    /* Responsive */
-    @media (max-width: 600px) {
-      nav {
-        gap: 1rem;
-      }
-      section {
-        padding: 1.2rem;
-      }
-    }
+    #back-to-top.visible { opacity: 1; }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Ankur Karna</h1>
-    <p class="subtitle">Java Developer | Spring Boot | SQL | Power BI</p>
-  </header>
-
-  <nav>
-    <a href="#" data-page="about" class="active">About</a>
-    <a href="#" data-page="projects">Projects</a>
-    <a href="#" data-page="blog">Blog</a>
-    <a href="#" data-page="contact">Contact</a>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm sticky top-0 z-10">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Ankur Karna</h1>
+      <div class="flex items-center space-x-6">
+        <a href="#about" class="hover:text-blue-600">About</a>
+        <a href="#experience" class="hover:text-blue-600">Experience</a>
+        <a href="#projects" class="hover:text-blue-600">Projects</a>
+        <a href="#education" class="hover:text-blue-600">Education</a>
+        <a href="#skills" class="hover:text-blue-600">Skills</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      </div>
+    </div>
   </nav>
 
-  <section id="about" class="visible">
-    <h2>About Me</h2>
-    <p>I'm a passionate Java developer with experience in building full-stack applications using Spring Boot, SQL, and data visualization with Power BI. I love learning new technologies and solving real-world problems through code.</p>
-    <button class="download-btn" onclick="downloadResume()">Download Resume</button>
+  <!-- Hero Section with Profile Picture and Resume Download -->
+  <section class="max-w-5xl mx-auto px-4 py-16 text-center">
+    <img src="profile.jpg" alt="Ankur Karna Profile Picture" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-2 border-gray-200">
+    <h2 class="text-4xl font-bold mb-4">Hi, I'm Ankur Karna</h2>
+    <p class="text-lg text-gray-600 mb-6">Software Engineer | Building Scalable Java Spring Boot Solutions</p>
+    <div class="flex justify-center space-x-4">
+      <a href="#contact" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">Get in Touch</a>
+      <a href="AnkurKarna_Resume_20250522.pdf" download class="inline-block bg-gray-600 text-white px-6 py-2 rounded-full hover:bg-gray-700">Download Resume</a>
+    </div>
   </section>
 
-  <section id="projects" class="">
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Customer Insight Pro</strong><br>A Spring Boot app with CRUD operations for customers, products, and purchases. Includes RESTful analytics, Swagger docs, and future Power BI integration.</li>
-      <li><strong>Sales Dashboard</strong><br>Developed in Power BI to track performance and trends, improving decision-making for business stakeholders.</li>
-    </ul>
+  <!-- About Section -->
+  <section id="about" class="max-w-5xl mx-auto px-4 py-16">
+    <h3 class="text-2xl font-bold mb-6">About Me</h3>
+    <p class="text-gray-600 leading-relaxed">
+      I'm a Software Engineer with over 2 years of experience specializing in Java and Spring Boot. I excel in building scalable microservices and RESTful APIs, reducing system latency by 30% through multithreading and optimized configurations. Passionate about delivering efficient, high-performance solutions using modern development practices.
+    </p>
   </section>
 
-  <section id="blog" class="">
-    <h2>Blog</h2>
-    <ul>
-      <li><strong>Getting started with Spring Boot</strong> - How to quickly set up a Spring Boot project and structure it.</li>
-      <li><strong>Power BI Tips</strong> - Useful techniques for building interactive dashboards.</li>
-      <li><strong>SQL Query Optimization</strong> - Best practices for writing efficient SQL queries.</li>
-    </ul>
+  <!-- Experience Section -->
+  <section id="experience" class="max-w-5xl mx-auto px-4 py-16 bg-white">
+    <h3 class="text-2xl font-bold mb-6">Experience</h3>
+    <div class="space-y-8">
+      <div>
+        <h4 class="text-xl font-semibold">Software Engineer</h4>
+        <p class="text-gray-600">HCLTech, Noida, IN | Sep 2022 - Mar 2025</p>
+        <ul class="list-disc list-inside text-gray-600 mt-2">
+          <li>Developed and optimized Java Spring Boot applications with RESTful APIs, improving system response time by 25% via Spring Security configurations.</li>
+          <li>Designed microservices using Spring Data JPA, Spring MVC, and layered architecture, reducing MySQL query execution time by 35% with optimized indexing.</li>
+          <li>Implemented multithreaded processes with Executor Service, enhancing scalability for 100+ simultaneous users.</li>
+          <li>Built REST APIs for a Work Order Tracking System, integrating Power BI for real-time reporting, reducing manual effort by 40%.</li>
+          <li>Supported migration of Java applications from Windows Server 2012 to 2019/2022, ensuring zero downtime.</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <section id="contact" class="">
-    <h2>Contact Me</h2>
-    <form id="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="submit-btn">Send Message</button>
-      <p class="message" id="form-message"></p>
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-5xl mx-auto px-4 py-16">
+    <h3 class="text-2xl font-bold mb-6">Projects</h3>
+    <div class="space-y-8">
+      <div>
+        <h4 class="text-xl font-semibold">Work Order Tracking System</h4>
+        <p class="text-gray-600 mt-2">
+          Engineered a full-stack Java Spring Boot application with MySQL, creating 10+ REST API endpoints to automate task workflows for a manufacturing client, saving 15 hours weekly. <a href="https://github.com/ankurkarna/work-order-system" class="text-blue-600 hover:underline">View on GitHub</a>.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-xl font-semibold">Customer Insight Pro</h4>
+        <p class="text-gray-600 mt-2">
+          Built a Java Spring Boot application with MySQL, enabling CRUD operations for 1,000+ customer and product records. Designed 15+ REST API endpoints with Spring MVC and Swagger, achieving 90% query accuracy. Integrated Power BI dashboards, reducing data retrieval time by 25%. <a href="https://github.com/ankurkarna/customer-insight-pro" class="text-blue-600 hover:underline">View on GitHub</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="max-w-5xl mx-auto px-4 py-16 bg-white">
+    <h3 class="text-2xl font-bold mb-6">Education</h3>
+    <div>
+      <h4 class="text-xl font-semibold">B.Tech in Computer Science & Engineering</h4>
+      <p class="text-gray-600">Bharati Vidyapeeth's College of Engineering, IPU, Delhi, IN | Aug 2019 - May 2022</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="max-w-5xl mx-auto px-4 py-16">
+    <h3 class="text-2xl font-bold mb-6">Skills</h3>
+    <div class="space-y-8">
+      <!-- Programming -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Programming</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">Java</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">Spring Boot</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">Spring MVC</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">Spring Data JPA</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">Spring Security</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">REST APIs</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">Multithreading</span>
+        </div>
+      </div>
+      <!-- Databases -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Databases</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">MySQL</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">PL/SQL</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">MongoDB</span>
+        </div>
+      </div>
+      <!-- Development Tools -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Development Tools</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">Maven</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">Gradle</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">JUnit</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">Git</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">Postman</span>
+        </div>
+      </div>
+      <!-- Cloud & Automation -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Cloud & Automation</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">Microsoft Power Platform</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">Power BI</span>
+        </div>
+      </div>
+      <!-- Other -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Other</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">OOP</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">DSA</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">Microservices Architecture</span>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-center hover:bg-blue-200 transition">Agile Methodologies</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="max-w-5xl mx-auto px-4 py-16 bg-white">
+    <h3 class="text-2xl font-bold mb-6">Certifications</h3>
+    <div>
+      <h4 class="text-xl font-semibold">AWS Certified Cloud Practitioner</h4>
+      <p class="text-gray-600">Apr 2023 - Mar 2026</p>
+    </div>
+  </section>
+
+  <!-- Contact Section with Form -->
+  <section id="contact" class="max-w-5xl mx-auto px-4 py-16 text-center">
+    <h3 class="text-2xl font-bold mb-6">Get in Touch</h3>
+    <p class="text-gray-600 mb-6">Interested in collaborating? Send me a message!</p>
+    <form action="#" class="max-w-md mx-auto space-y-4">
+      <div>
+        <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600">
+      </div>
+      <div>
+        <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600">
+      </div>
+      <div>
+        <textarea name="message" placeholder="Your Message" required rows="4" class="w-full px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+      </div>
+      <button type="submit" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">Send Message</button>
     </form>
+    <div class="flex justify-center space-x-6 mt-6">
+      <a href="https://linkedin.com/in/ankurkarna" class="text-blue-600 hover:text-blue-700">
+        <svg class="w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      </a>
+      <a href="https://github.com/ankurkarna" class="text-blue-600 hover:text-blue-700">
+        <svg class="w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.29 1.08 2.85.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.92 0-1.08.38-1.97 1.01-2.66-.1-.25-.44-1.26.1-2.63 0 0 .83-.27 2.72 1.01a9.43 9.43 0 012.46-.33c.84 0 1.68.11 2.46.33 1.89-1.28 2.72-1.01 2.72-1.01.54 1.37.2 2.38.1 2.63.63.69 1.01 1.58 1.01 2.66 0 3.83-2.33 4.67-4.56 4.92.36.31.68.94.68 1.9v2.82c0 .27.16.58.67.5A10 10 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+      </a>
+    </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Ankur Karna</p>
+  <!-- Back-to-Top Button -->
+  <button id="back-to-top" class="hidden">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+  </button>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-4">
+    <p>© 2025 Ankur Karna. All rights reserved.</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
-    // Initialize EmailJS with your user ID (replace with your own!)
-    emailjs.init('YOUR_EMAILJS_USER_ID');
-
-    // Page navigation
-    const navLinks = document.querySelectorAll('nav a');
-    const sections = document.querySelectorAll('section');
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const page = link.getAttribute('data-page');
-
-        // Activate nav link
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-
-        // Show/hide sections with fade effect
-        sections.forEach(section => {
-          if(section.id === page) {
-            section.classList.add('visible');
-          } else {
-            section.classList.remove('visible');
-          }
-        });
-      });
-    });
-
-    // Simple fade-in on scroll for sections (optional extra)
+    // Back-to-top button visibility
     window.addEventListener('scroll', () => {
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 100) {
-          section.classList.add('visible');
-        }
-      });
+      const backToTop = document.getElementById('back-to-top');
+      if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+        backToTop.classList.remove('hidden');
+      } else {
+        backToTop.classList.remove('visible');
+        backToTop.classList.add('hidden');
+      }
     });
 
-    // Resume download handler - link to your resume PDF here
-    function downloadResume() {
-      // Replace with your actual resume file URL
-      const resumeUrl = 'https://drive.google.com/file/d/1uptifZ9L4dkzs4cctcU6WaItNk8kFTDF/view?usp=sharing';
-      window.open(resumeUrl, '_blank');
-    }
-
-    // Contact form submit using EmailJS
-    const form = document.getElementById('contact-form');
-    const formMessage = document.getElementById('form-message');
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      formMessage.textContent = 'Sending...';
-
-      emailjs.sendForm('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', form)
-        .then(() => {
-          formMessage.style.color = 'green';
-          formMessage.textContent = 'Message sent successfully!';
-          form.reset();
-        }, (error) => {
-          formMessage.style.color = 'red';
-          formMessage.textContent = 'Failed to send message, please try again later.';
-          console.error('EmailJS error:', error);
-        });
+    // Back-to-top scroll
+    document.getElementById('back-to-top').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
 </body>
